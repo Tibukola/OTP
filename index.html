@@ -1,0 +1,61 @@
+<html>
+    <head>
+        <title>
+             Bukola_Recharge_card
+        </title>
+        <style>
+body{
+    background: linear-gradient(yellow 50%, blue 50%) ;
+    justify-items: center;
+    margin-left: 500px;
+    margin-top: 100px;
+    ;
+}
+input, button{
+    height: 30px;
+    border-radius: 10px;
+}
+.note{
+    color: white;
+}
+        </style>
+    </head>
+    <body>
+        <h1>Bukola_Recharge_card</h1>
+        <input type="text" id="gen" disabled="">
+        <button onclick="generateOtp()">generate-otp</button>
+       <br>
+       <br>
+        <h4>press *555*otp# to load your card</h4>
+        <input type="text" id="Otp-input">
+        <button onclick="validateOTP()">validate-otp</button>
+<br>
+<br>
+        <h4 class="note">MTN, GLO, AIRTEL and 9MOBILE are all available</h4>
+<script>
+const generateOtp = () => {
+    const otp = gen(10);
+    document.getElementById("gen").value = otp;
+};
+const gen = (length) => {
+    let otp_code = [];
+    for (let i = 0; i < length; i++) {
+        const element = Math.round(Math.random() * 9);
+        otp_code.push(element);
+    }
+    const splitted = otp_code.join("");
+    return splitted;
+};
+function validateOTP() {
+			const inputOTP = document.getElementById("Otp-input").value;
+			const generatedOTP = document.getElementById("gen").value;
+			if (inputOTP === generatedOTP) {
+				alert("OTP is valid!");
+			} else {
+				alert("Invalid OTP!");
+			}
+		}
+
+    </script>
+  </body>
+</html>
